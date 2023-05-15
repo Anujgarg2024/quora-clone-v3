@@ -20,6 +20,7 @@ import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { logout, selectUser } from "../feature/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import backendUrl from "../link";
 
 function QuoraHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,7 +43,7 @@ function QuoraHeader() {
         user: user,
       };
       await axios
-        .post("http://localhost:80/api/questions", body, config)
+        .post(`${backendUrl}/api/questions`, body, config)
         .then((res) => {
           console.log(res.data);
           alert(res.data.message);
