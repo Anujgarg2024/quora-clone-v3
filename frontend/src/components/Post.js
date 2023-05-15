@@ -14,12 +14,12 @@ import "react-responsive-modal/styles.css";
 import CloseIcon from "@material-ui/icons/Close";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import ReactTimeAgo from "react-time-ago";
 import axios from "axios";
 import ReactHtmlParser from "html-react-parser";
 import { useSelector } from "react-redux";
 import { selectUser } from "../feature/userSlice";
 import moment from "moment";
+import backendUrl from "../link";
 
 
 function LastSeen({ date }) {
@@ -55,7 +55,7 @@ function Post({ post }) {
         user: user,
       };
       await axios
-        .post("http://localhost:80/api/answers", body, config)
+        .post(`${backendUrl}/api/answers`, body, config)
         .then((res) => {
           console.log(res.data);
           alert("Answer added succesfully");

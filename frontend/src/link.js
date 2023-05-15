@@ -1,2 +1,2 @@
-const backendUrl = "http://localhost:80"
+const backendUrl = "http://localhost:4050"
 export default backendUrl
